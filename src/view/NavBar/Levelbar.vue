@@ -1,6 +1,6 @@
 <template>
   <!-- 面包屑导航 对element-ui的面包屑进行二次封装 -->
-  <div class="levelbar">
+  <!-- <div class="levelbar">
       <span class="text"> 当前位置：</span>
       <el-breadcrumb class="app-levelbar" separator="/">
         <el-breadcrumb-item v-for="(item,index)  in levelList">
@@ -10,7 +10,7 @@
             <router-link v-else :to="item.path">{{item.name}}</router-link>
         </el-breadcrumb-item>
       </el-breadcrumb>
-  </div>
+  </div> -->
   
 </template>
 
@@ -32,7 +32,7 @@
           if (first && (first.name !== '首页' || first.path !== '')) {
             matched = [{ name: '首页', path: '/home/hello' }].concat(matched)
           }
-          console.log('面包屑:',matched);
+          // console.log('面包屑:',matched);
           this.levelList = matched;
         }
       },

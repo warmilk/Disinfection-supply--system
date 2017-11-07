@@ -3,7 +3,7 @@
 		<el-menu class="el-menu-vertical-demo menu" theme="dark">
 			<el-menu-item index="1">
 			    <router-link to="/home/hello">
-			        <i class="fa fa-home icon" aria-hidden="true"></i>首页 
+			        <i class="fa fa-home icon" aria-hidden="true"></i>清洗管理				 
 			    </router-link>
 			</el-menu-item>
 			<!-- <el-menu-item index="2">
@@ -11,27 +11,27 @@
 			</el-menu-item> -->
 			<el-menu-item index="3">
 				<router-link to="/home/arrange">
-			    	<i class="fa fa-calendar icon" aria-hidden="true"></i>排班
+			    	<i class="fa fa-calendar icon" aria-hidden="true"></i>配包管理
 			    </router-link>
 			</el-menu-item>
 			<el-menu-item index="4">
 				<router-link to="/home/reservation">
-			   		<i class="fa fa-clock-o icon" aria-hidden="true"></i>预约
+			   		<i class="fa fa-clock-o icon" aria-hidden="true"></i>消毒管理
 			   	</router-link>
 			</el-menu-item>
 			<el-menu-item index="5">
 				<router-link to="/home/Inquiry">
-			    	<i class="fa fa-plus-square icon" aria-hidden="true"></i>问诊
+			    	<i class="fa fa-plus-square icon" aria-hidden="true"></i>发放管理	
 			    </router-link>
 			</el-menu-item>
 			<el-menu-item index="6">
 				<router-link to="/home/project">
-			    	<i class="fa fa-folder-open-o icon" aria-hidden="true"></i>项目
+			    	<i class="fa fa-folder-open-o icon" aria-hidden="true"></i>使用管理
 			    </router-link>
 			</el-menu-item>
 			<el-menu-item index="7">
 				<router-link to="/home/members">
-			    	<i class="fa fa-user-circle icon" aria-hidden="true"></i>会员
+			    	<i class="fa fa-user-circle icon" aria-hidden="true"></i>回收管理
 			    </router-link>
 			</el-menu-item>
 		</el-menu>
