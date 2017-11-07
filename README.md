@@ -7,7 +7,7 @@ Modern browsers and IE 10+.
 
 ## Usage
 
-用任意命令行工具cd到项目当前目录（推荐bash）
+用任意命令行工具cd进入项目当前目录（推荐bash）
 
 键入 npm i 命令安装项目所需依赖包（由于npm所在服务器并非中国大陆，为了防止安装依赖时丢包，建议配置cnpm代替npm，股沟一下淘宝cnpm镜像进行配置即可）
 
