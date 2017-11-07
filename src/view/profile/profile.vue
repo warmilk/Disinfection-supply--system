@@ -196,241 +196,233 @@
 	</div>
 </template>
 <style scoped>
-	.personal .navBar{
-		display: inline-block;	
-		color: #f1f1f1;
-	}
-	.personal .content-left,.personal .content-right{
-		display: inline-block;
-		text-align: left;
-	}
-	.personal .content-left{
-		width: 300px;
-		height: 100%;
-		text-align: center;
-		position: relative;
-		top: -500px;
-	}
-	.personal .content-left img{
-		width: 80px;
-		height: 80px;
-		vertical-align: middle;  
-	}
-	.personal .content-left p{
-		padding-left: 14px;
-	}
-	.personal .content-right{
-		color: #AEAEAE;
-		width: 700px;
-	}
-	.personal .content-right .personal-info{
-		border: 1px solid #f1f1f1;
-		border-radius: 10px;
-		background: #fff;
-		height: 100%;
-	}
-	.personal .content-right .special{
-		margin-top: 15px;
-	}
-	.personal .content-right .personal-info .title{
-		color: #666;
-		font-size: 18px;
-		line-height: 50px;
-		border-bottom: 1px solid #f1f1f1;
-	}
-	.personal .content-right .personal-info .title span{
-		width: 50%;
-		text-align: left;
-		padding-left: 25px;
-	}
-	.personal .content-right .personal-info .title .editor{
-		width: 50%;
-		text-align: right;
-		margin-left: 200px;
-		font-size: 18px;
-	}
-	.personal .content-right .title-content{
-		line-height: 50px;
-		border:0.5px solid #f1f1f1; 
-	}
-	.personal .content-right .title-content .left{
-		display: inline-block;
-		width: 40%;
-	}
-	.personal .content-right .title-content .left1{
-		width: 100%;
-		display: inline-block;
-	}
-	.personal .content-right .title-content span:first-child{
-		padding-left: 13px;
-	}
-	.personal .content-right .change-text{
-		color: #666;
-	}
-	.personal .editor1{
-		font-size: 18px;
-		margin-left: 295px;
-	}
-
+.personal .navBar {
+  display: inline-block;
+  color: #f1f1f1;
+}
+.personal .content-left,
+.personal .content-right {
+  display: inline-block;
+  text-align: left;
+}
+.personal .content-left {
+  width: 300px;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  top: -500px;
+}
+.personal .content-left img {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+.personal .content-left p {
+  padding-left: 14px;
+}
+.personal .content-right {
+  color: #aeaeae;
+  width: 700px;
+}
+.personal .content-right .personal-info {
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+  background: #fff;
+  height: 100%;
+}
+.personal .content-right .special {
+  margin-top: 15px;
+}
+.personal .content-right .personal-info .title {
+  color: #666;
+  font-size: 18px;
+  line-height: 50px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.personal .content-right .personal-info .title span {
+  width: 50%;
+  text-align: left;
+  padding-left: 25px;
+}
+.personal .content-right .personal-info .title .editor {
+  width: 50%;
+  text-align: right;
+  margin-left: 200px;
+  font-size: 18px;
+}
+.personal .content-right .title-content {
+  line-height: 50px;
+  border: 0.5px solid #f1f1f1;
+}
+.personal .content-right .title-content .left {
+  display: inline-block;
+  width: 40%;
+}
+.personal .content-right .title-content .left1 {
+  width: 100%;
+  display: inline-block;
+}
+.personal .content-right .title-content span:first-child {
+  padding-left: 13px;
+}
+.personal .content-right .change-text {
+  color: #666;
+}
+.personal .editor1 {
+  font-size: 18px;
+  margin-left: 295px;
+}
 </style>
 <script>
-	import store from '../../store';
-	import {api} from '../../global/api';
-	export default { 
-		data() {
-			// 校验输入的电话号码
-			var validateNum = (rule, value, callback) => {
-			    if (!value) {
-			        callback(new Error('请输入电话号码'));
-			    }
-			    else {
-			    	console.log("value的值",value);
-			    	var reg1 = /^[0-9]{11}$/;
-			    	if (! reg1.test(value)) {
-			        	callback(new Error('请输入11位数字值'));
-			    	} else {
-			       		callback();
-			    	}
-				}
-			};
-			var validateeMail=(rule, value, callback) => {
-	    		if (value === '') {
-	    	        callback(new Error('请输入联系邮箱'));
-	    	    }
-	    	    else{
-	    	    	var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+.[a-zA-Z0-9_-]+$/;
-	    	    	if(!reg.test(value)){
-	    	    		callback(new Error('输入的联系邮箱必须包含@'));
-	    	    	}
-	    	    	else{
-	    	    		callback();
-	    	    	}
-	    	    }
-	    	};
-			return{
-				// 姓名
-				per:store.state.per,
-				name1:'',
-				// 个人信息
-				personal:{
-					// name:store.state.name,
-					sex:'',
-					age:'',
-					subordinate:'',
-					job:'',
-					phone:'',
-				},
-				ptype:'',
-				// 医生信息
-				personal2:{
-					visitSubordinate:'',
-					disease:'',
-					introduce:''
-				},
-				// 帐号信息
-				personal3:{
-					email:'',
-					nEmail:''
-				},
-				// 获取state的值
-				loginForm:store.state.userInfo,
-				// 个人信息弹出框状态
-				dialogFormVisible: false,
-				// 医生信息弹出框状态
-				dialogFormVisible2: false,
-				// 帐号信息弹出框状态
-				dialogFormVisible3: false,
-				form: {
-				    // name: '',
-			        subordinate: '',
-			        sex:'男',
-			        age:'',
-			        phone:'',
-			        job:'',
-			        note:''
-				},
-				form2:{
-					visitSubordinate:'',
-			        disease:'',
-					introduce:''
-				},
-				form3:{
-					email:''
-				},
-				formLabelWidth: '120px',
-				// 校验输入的电话号码的规则
-				rules: {
-				  phone: [    
-				    {validator: validateNum, trigger: 'blur' }
-				  ],
-				  email: [
-				    {validator: validateeMail, trigger: 'blur' }
-				  ]
-				}
-			}
-		},
-		mounted:function(){
-			this.$http.get(api.personal).then(function(response){
-				// console.log("response的值",response);
-				this.personal=response.data.data.personal;
-				this.personal2=response.data.data.personal2;
-				this.personal3=response.data.data.personal3;
-				this.ptype=response.data.data.ptype;
-				// console.log("personal的值",this.personal);
-			});
-		},
-		methods:{
-			// 点击个人信息的编辑时初始化弹出框表单的内容
-			editorDialogForm:function(){
-				this.dialogFormVisible = true;
-				this.form={
-				    // name: '',
-			        subordinate: '',
-			        sex:'男',
-			        date:'',
-			        phone:'',
-			        job:'',
-			        note:''
-				};
-				this.name1='';
-			},
-			// 点击医生信息的编辑时初始化弹出框表单的内容
-			editorDialogForm2:function(){
-				this.dialogFormVisible2 = true;
-				this.form2={
-					visitSubordinate:'',
-			        disease:'',
-					introduce:''
-				}
-			},
-			// 点击帐号信息的编辑时初始化弹出框表单的内容
-			editorDialogForm3:function(){
-				this.dialogFormVisible3 = true;
-				this.form3={
-					email:''
-				}
-			},
-			// 个人信息部分提交时执行的操作
-			handleDialogForm:function(){
-				this.dialogFormVisible = false;
-				// this.personal=this.form;  //浅拷贝
-				this.personal=JSON.parse(JSON.stringify(this.form));
-				// this.name=JSON.parse(JSON.stringify(this.form.name));  //深度拷贝
-				this.per.name=this.name1;
-			},
-			// 医生信息部分提交时执行的操作
-			handleDialogForm2:function(){
-				this.dialogFormVisible2 = false;
-				// this.personal=this.form;  //浅拷贝
-				this.personal2=JSON.parse(JSON.stringify(this.form2));  //深度拷贝
-			},
-			// 帐号信息部分提交时执行的操作
-			handleDialogForm3:function(){
-				this.dialogFormVisible3 = false;
-				// this.personal=this.form;  //浅拷贝
-				this.personal3=JSON.parse(JSON.stringify(this.form3));  //深度拷贝
-			}
-			
-		}
-	}
+import store from "../../store";
+import { api } from "../../global/api";
+export default {
+  data() {
+    // 校验输入的电话号码
+    var validateNum = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error("请输入电话号码"));
+      } else {
+        console.log("value的值", value);
+        var reg1 = /^[0-9]{11}$/;
+        if (!reg1.test(value)) {
+          callback(new Error("请输入11位数字值"));
+        } else {
+          callback();
+        }
+      }
+    };
+    var validateeMail = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入联系邮箱"));
+      } else {
+        var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+.[a-zA-Z0-9_-]+$/;
+        if (!reg.test(value)) {
+          callback(new Error("输入的联系邮箱必须包含@"));
+        } else {
+          callback();
+        }
+      }
+    };
+    return {
+      // 姓名
+      per: store.state.per,
+      name1: "",
+      // 个人信息
+      personal: {
+        // name:store.state.name,
+        sex: "",
+        age: "",
+        subordinate: "",
+        job: "",
+        phone: ""
+      },
+      ptype: "",
+      // 医生信息
+      personal2: {
+        visitSubordinate: "",
+        disease: "",
+        introduce: ""
+      },
+      // 帐号信息
+      personal3: {
+        email: "",
+        nEmail: ""
+      },
+      // 获取state的值
+      loginForm: store.state.userInfo,
+      // 个人信息弹出框状态
+      dialogFormVisible: false,
+      // 医生信息弹出框状态
+      dialogFormVisible2: false,
+      // 帐号信息弹出框状态
+      dialogFormVisible3: false,
+      form: {
+        // name: '',
+        subordinate: "",
+        sex: "男",
+        age: "",
+        phone: "",
+        job: "",
+        note: ""
+      },
+      form2: {
+        visitSubordinate: "",
+        disease: "",
+        introduce: ""
+      },
+      form3: {
+        email: ""
+      },
+      formLabelWidth: "120px",
+      // 校验输入的电话号码的规则
+      rules: {
+        phone: [{ validator: validateNum, trigger: "blur" }],
+        email: [{ validator: validateeMail, trigger: "blur" }]
+      }
+    };
+  },
+  mounted: function() {
+    this.$http.get(api.personal).then(function(response) {
+      // console.log("response的值",response);
+      this.personal = response.data.data.personal;
+      this.personal2 = response.data.data.personal2;
+      this.personal3 = response.data.data.personal3;
+      this.ptype = response.data.data.ptype;
+      // console.log("personal的值",this.personal);
+    });
+  },
+  methods: {
+    // 点击个人信息的编辑时初始化弹出框表单的内容
+    editorDialogForm: function() {
+      this.dialogFormVisible = true;
+      this.form = {
+        // name: '',
+        subordinate: "",
+        sex: "男",
+        date: "",
+        phone: "",
+        job: "",
+        note: ""
+      };
+      this.name1 = "";
+    },
+    // 点击医生信息的编辑时初始化弹出框表单的内容
+    editorDialogForm2: function() {
+      this.dialogFormVisible2 = true;
+      this.form2 = {
+        visitSubordinate: "",
+        disease: "",
+        introduce: ""
+      };
+    },
+    // 点击帐号信息的编辑时初始化弹出框表单的内容
+    editorDialogForm3: function() {
+      this.dialogFormVisible3 = true;
+      this.form3 = {
+        email: ""
+      };
+    },
+    // 个人信息部分提交时执行的操作
+    handleDialogForm: function() {
+      this.dialogFormVisible = false;
+      // this.personal=this.form;  //浅拷贝
+      this.personal = JSON.parse(JSON.stringify(this.form));
+      // this.name=JSON.parse(JSON.stringify(this.form.name));  //深度拷贝
+      this.per.name = this.name1;
+    },
+    // 医生信息部分提交时执行的操作
+    handleDialogForm2: function() {
+      this.dialogFormVisible2 = false;
+      // this.personal=this.form;  //浅拷贝
+      this.personal2 = JSON.parse(JSON.stringify(this.form2)); //深度拷贝
+    },
+    // 帐号信息部分提交时执行的操作
+    handleDialogForm3: function() {
+      this.dialogFormVisible3 = false;
+      // this.personal=this.form;  //浅拷贝
+      this.personal3 = JSON.parse(JSON.stringify(this.form3)); //深度拷贝
+    }
+  }
+};
 </script>

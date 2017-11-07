@@ -20,6 +20,7 @@ export default {
 body{
 	width: 100%;
 	height: 100%;
-	background: #f1f1f1;
+  background: #f1f1f1;
+  font-family: 微软雅黑, Arial, Helvetica, sans-serif;
 }
 </style>
