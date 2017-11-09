@@ -23,10 +23,10 @@ if 所有依赖包安装成功：
 
 × 静态页面书写（不想写了猴烦）
 
-√ 后端服务器接口的提供（RESTful风格的接口文档，可戳 http://www.code-tan.cn:9997/swagger/#!/CallbackDetail/ApiCallbackDetailGetAllGet）
+√ 后端服务器接口的提供（我们设计的是RESTful风格的接口，接口文档可戳 http://www.code-tan.cn:9997/swagger/#!/CallbackDetail/ApiCallbackDetailGetAllGet）
 ）
 
-× 静态页面接入接口（当前用的是element-ui的1.4版，vue-resource已被官方废弃，如果需要升级至vue2.0使用Axios来进行接口的代理话，需要给多一周开发时间。。）
+× 静态页面接入接口（当前用的是element-ui的1.4版，vue-resource已被官方废弃，如果需要升级至vue2.0使用Axios来进行接口的代理话，需要给多一周开发时间。。当前版本为前端开发人员本地自行模拟数据，并未接入接口）
 
 ## Tag
 
