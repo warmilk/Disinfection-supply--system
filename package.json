@@ -1,8 +1,8 @@
 {
-  "name": "医院消毒供应系统",
+  "name": "DisinfectionSupplySystem",
   "version": "1.0.0",
   "description": "软件工程作业",
-  "author": "邓曲英 <godblessu.milk@gmail.com>",
+  "author": "dengquying <godblessu.milk@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

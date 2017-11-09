@@ -1,10 +1,6 @@
 <template>
 	<div class="top">
-		<!-- <el-row> -->
 		<div>
-			<!-- <el-button class="barsBtn">
-				<i class="fa fa-bars" aria-hidden="true"></i>
-			</el-button> -->
 			<span class="font-time">今天&nbsp;{{ time.month }}&nbsp;月{{ time.day }}&nbsp;日&nbsp;&nbsp;{{ todos[time.Day] }}&nbsp;&nbsp;{{ time.hours }}:{{ time.minutes }}</span>
 			<ul class="menu2">
 				<li>
@@ -38,6 +34,9 @@
 		<!-- </el-row> -->
 	</div>
 </template>
+
+
+
 <style type="text/css" scoped>
 .top {
   width: 100%;
@@ -93,6 +92,8 @@
   cursor: pointer;
 }
 </style>
+
+
 <script>
 import store from "../../store";
 var date = new Date();
@@ -111,8 +112,4 @@ export default {
     };
   }
 };
-// var cla=document.getElementsByClassName("barsBtn");
-// cla.onclick=function(){
-// 	this.toggle("aa")
-// }
 </script>
